@@ -30,7 +30,7 @@
  *  General Notes about this project
  */
 
-// 5/22/24 SR/DK: fixed compiler error by allocating 4 bytes to hold character strings
+// 5/22/24 fixed compiler error by allocating 4 bytes to hold character strings
 //  since some Chinese characters need 3 bytes for their UTF-encoding, plus a null byte at the end.
 
 #include <stdio.h>

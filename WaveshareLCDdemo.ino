@@ -2,12 +2,35 @@
  *    This demo program shows how to display graphics, including images, on a Waveshare 2.4 inch LCD Module
  *    from an Arduino Giga R1 board.
  *    Author: Glaive Software Group
- *    Revised: 6/16/2024.
+ *    Revised: 7/18/2024.
  *    Based on the LCD_2inch4.ino sample program from the Waveshare Wiki,
  *    https://www.waveshare.com/wiki/2.4inch_LCD_Module#Arduino_software_description.
  *    
  *    To run this sketch, you will need to specify that you are using the Arduino Giga R1 board
  *    in the IDE's board manager (under Arduino Mbed OS Giga boards).
+ *    This sketch uses the Waveshare 2.4 inch LCD Module which uses the ILI9341 controller.
+ *    The display is 240x320 pixels.
+ *    
+ *    This sketch displays various demo figures on the Waveshare LCD module using the SPI interface.
+ *    
+ *    The pin connections must be set up as follows:
+ *    
+ *    LCD pin     wire color    Arduino pin
+ *    -------     ----------    -----------
+ *    VCC         purple        5V            required
+ *    GND         white         GND           required
+ *    DIN         green         D90 (COPI)    required  (on SPI 6-pin connector)
+ *    CLK         orange        D91 (SCK)     required  (on SPI 6-pin connector)
+ *    CS          yellow        D10           optional
+ *    DC          blue          D7            optional
+ *    RST         brown         D8            optional
+ *    BL          gray          D9            optional
+ *    
+ *    This demo is set up to use pins D7, D8, D9, and D10 as shown in the table above.
+ *    You can replace these pins by any digital pins.
+ *    To do that, specify the pins you are using in the file DEV_Config.h.
+ *    
+ *    This program is Free Software and has ABSOLUTELY NO WARRANTY.
  */
 
 #include <SPI.h>
@@ -69,14 +92,14 @@ void setup()
 //  drawBlackAndWhiteImage();
 //  drawWaveshareLogo();
 //  moveWaveshareLogo();
-//  drawGlaiveG100x100();
-//  move100x100GlaiveG();
-//  slideGlaiveG();
-//  drawGlaiveG70x70();
-//  move70x70GlaiveG();
+//  drawG100x100();
+//  move100x100G();
+//  slideG();
+//  drawG70x70();
+//  move70x70G();
 //  checkTiming();
 //  drawPartialArea();
-    quickDrawGlaiveG();
+    quickDrawG();
 //  draw45degreeLineFromOrigin();
   
   Serial.print("exiting setup.\n");

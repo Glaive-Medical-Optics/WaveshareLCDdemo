@@ -12,7 +12,7 @@
   | Date        :   2018-11-15
   | Info        :
 
-  5/22/2024: SR and DK: In routine Paint_DrawString_CN, remove "unsigned" from 3rd argument.
+  5/22/2024: In routine Paint_DrawString_CN, remove "unsigned" from 3rd argument.
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documnetation files (the "Software"), to deal

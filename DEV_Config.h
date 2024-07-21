@@ -10,8 +10,8 @@
 * | Date        :   2018-11-22
 * | Info        :
 * 
-* 5/21/2024 SR and DK: Add parameter DEV_SPI_FREQUENCY to specify maximum frequency of this device.
-* 5/22/2024 SR and DK: include <avr/dtostrf.h> in order to make dtostrf accessible
+* 5/21/2024 Add parameter DEV_SPI_FREQUENCY to specify maximum frequency of this device.
+* 5/22/2024 include <avr/dtostrf.h> in order to make dtostrf accessible
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documnetation files (the "Software"), to deal

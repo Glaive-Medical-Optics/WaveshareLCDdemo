@@ -10,7 +10,7 @@
 * | Date        :   2018-11-22
 * | Info        :
 * 
-* 5/21/2024 SR and DK: update deprecated calls setDataMode, setBitOrder, and setClockDivider
+* 5/21/2024 update deprecated calls setDataMode, setBitOrder, and setClockDivider
 * to use the new beginTransaction function.
 *
 # Permission is hereby granted, free of charge, to any person obtaining a copy

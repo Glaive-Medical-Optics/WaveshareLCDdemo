@@ -2,8 +2,8 @@
 #define _DEV_CONVERT_H_
 
 // Define the width and height of the image
-#define GLAIVE_WIDTH 100
-#define GLAIVE_HEIGHT 100
+#define G_WIDTH 100
+#define G_HEIGHT 100
 
 #include <stdint.h>
 

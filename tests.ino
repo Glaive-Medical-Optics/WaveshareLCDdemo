@@ -1,7 +1,7 @@
 /*****************************************************************************
 * | File        : tests
 * | Author      : Waveshare team
-* |             : moved into separate file by SR,
+* |             : moved into separate file
 *----------------
 * | This version:   V1.0
 * | Date        :   2018-01-11
@@ -47,14 +47,14 @@ void basicValidationTest()
   Serial.println(" sec");
 }
 
-extern PROGMEM const unsigned char gImage_GlaiveGbw[];
+extern PROGMEM const unsigned char gImage_Gbw[];
 
 void drawBlackAndWhiteImage()
 {
   Paint_NewImage(LCD_WIDTH, LCD_HEIGHT, 0, WHITE);
   time1=micros();
 
-  Paint_DrawImage(gImage_GlaiveGbw, 20, 80, 100, 50); 
+  Paint_DrawImage(gImage_Gbw, 20, 80, 100, 50); 
 
   time2=micros();
   dif=time2-time1;
@@ -105,31 +105,31 @@ void moveWaveshareLogo()
 #include "ConvertTo16bit.h"
 
 
-extern PROGMEM RGB888 gImageGlaiveG24bitColorG[100 * 100 * 3];
+extern PROGMEM RGB888 gImageG24bitColorG[100 * 100 * 3];
 
-PROGMEM RGB565 gImageGlaiveG16bitColorG[100 * 100 * 2];
+PROGMEM RGB565 gImageG16bitColorG[100 * 100 * 2];
 
-  //  Paint_DrawImage(gImage_GlaiveGbw, 20, 80, 100, 100); 
+  //  Paint_DrawImage(gImage_Gbw, 20, 80, 100, 100); 
 
-boolean convertedGlaiveG = false;
+boolean convertedG = false;
 
-void drawGlaiveG100x100()
+void drawG100x100()
 {
 
   // Convert the 24-bit logo data to 16-bit logo data
   // so that we can draw it using the Paint_DrawImage routine.
 
-  if (!convertedGlaiveG)
+  if (!convertedG)
   {
-  convert24bitTo16bit(gImageGlaiveG24bitColorG, gImageGlaiveG16bitColorG, GLAIVE_WIDTH, GLAIVE_HEIGHT);
-  convertedGlaiveG=true;
+  convert24bitTo16bit(gImageG24bitColorG, gImageG16bitColorG, G_WIDTH, G_HEIGHT);
+  convertedG=true;
   }
   
 //  Paint_NewImage(LCD_WIDTH, LCD_HEIGHT, 0, WHITE);
-  Paint_NewImage(GLAIVE_WIDTH+20, GLAIVE_HEIGHT+80, 0, WHITE);
+  Paint_NewImage(G_WIDTH+20, G_HEIGHT+80, 0, WHITE);
   time1=micros();
 
-  Paint_DrawImage((const unsigned char *)gImageGlaiveG16bitColorG, 20, 80, GLAIVE_WIDTH, GLAIVE_HEIGHT); 
+  Paint_DrawImage((const unsigned char *)gImageG16bitColorG, 20, 80, G_WIDTH, G_HEIGHT); 
 
   time2=micros();
   dif=time2-time1;
@@ -140,17 +140,17 @@ void drawGlaiveG100x100()
   Serial.println(" sec");
 }
 
-void move100x100GlaiveG()
+void move100x100G()
 {
   uint8_t i;
   
   // Convert the 24-bit logo data to 16-bit logo data
   // so that we can draw it using the Paint_DrawImage routine.
   
-  if (!convertedGlaiveG)
+  if (!convertedG)
   {
-  convert24bitTo16bit(gImageGlaiveG24bitColorG, gImageGlaiveG16bitColorG, GLAIVE_WIDTH, GLAIVE_HEIGHT);
-  convertedGlaiveG=true;
+  convert24bitTo16bit(gImageG24bitColorG, gImageG16bitColorG, G_WIDTH, G_HEIGHT);
+  convertedG=true;
   }
 
   Paint_NewImage(LCD_WIDTH, LCD_HEIGHT, 0, WHITE);
@@ -158,7 +158,7 @@ void move100x100GlaiveG()
 
   for (i=1; i<=100; i++)
   {
-    Paint_DrawImage((const unsigned char *)gImageGlaiveG16bitColorG, i, 20+2*i, GLAIVE_WIDTH, GLAIVE_HEIGHT);
+    Paint_DrawImage((const unsigned char *)gImageG16bitColorG, i, 20+2*i, G_WIDTH, G_HEIGHT);
   }
 
   time2=micros();
@@ -170,17 +170,17 @@ void move100x100GlaiveG()
   Serial.println(" sec");
 }
 
-void slideGlaiveG()
+void slideG()
 {
   uint8_t i;
   
   // Convert the 24-bit logo data to 16-bit logo data
   // so that we can draw it using the Paint_DrawImage routine.
   
-  if (!convertedGlaiveG)
+  if (!convertedG)
   {
-  convert24bitTo16bit(gImageGlaiveG24bitColorG, gImageGlaiveG16bitColorG, GLAIVE_WIDTH, GLAIVE_HEIGHT);
-  convertedGlaiveG=true;
+  convert24bitTo16bit(gImageG24bitColorG, gImageG16bitColorG, G_WIDTH, G_HEIGHT);
+  convertedG=true;
   }
 
   Paint_NewImage(LCD_WIDTH, LCD_HEIGHT, 0, WHITE);
@@ -188,7 +188,7 @@ void slideGlaiveG()
 
   for (i=1; i<=100; i++)
   {
-    Paint_DrawImage((const unsigned char *)gImageGlaiveG16bitColorG, 10+i, 10, GLAIVE_WIDTH, GLAIVE_HEIGHT);
+    Paint_DrawImage((const unsigned char *)gImageG16bitColorG, 10+i, 10, G_WIDTH, G_HEIGHT);
   }
 
   time2=micros();
@@ -225,12 +225,12 @@ void checkTiming()
 
 }
 
-void drawGlaiveG70x70()
+void drawG70x70()
 {
   Paint_NewImage(LCD_WIDTH, LCD_HEIGHT, 0, WHITE);
   time1=micros();
 
-  Paint_DrawImage((const unsigned char *)GlaiveG_70x70, 20, 80, GLAIVE70x70_WIDTH, GLAIVE70x70_HEIGHT); 
+  Paint_DrawImage((const unsigned char *)G_70x70, 20, 80, G70x70_WIDTH, G70x70_HEIGHT); 
 
   time2=micros();
   dif=time2-time1;
@@ -241,7 +241,7 @@ void drawGlaiveG70x70()
   Serial.println(" sec");
 }
 
-void move70x70GlaiveG()
+void move70x70G()
 {
   uint8_t i;
   
@@ -250,7 +250,7 @@ void move70x70GlaiveG()
 
   for (i=1; i<=100; i++)
   {
-    Paint_DrawImage((const unsigned char *)GlaiveG_70x70, i, 20+2*i, GLAIVE70x70_WIDTH, GLAIVE70x70_HEIGHT);
+    Paint_DrawImage((const unsigned char *)G_70x70, i, 20+2*i, G70x70_WIDTH, G70x70_HEIGHT);
   }
 
   time2=micros();
@@ -376,9 +376,9 @@ void drawPartialArea()
 
 
 
-void quickDrawGlaiveG()
+void quickDrawG()
 {
-  const unsigned short *logo = GlaiveG_70x70;
+  const unsigned short *logo = G_70x70;
   unsigned short *logoPtr;
   unsigned long row, col;
   unsigned long dur;
@@ -387,12 +387,12 @@ void quickDrawGlaiveG()
   int numberOfFrames = 120;
   int startX = 100;
   int startY = 30;
-  int width = GLAIVE70x70_WIDTH;
-  int height = GLAIVE70x70_HEIGHT;
+  int width = G70x70_WIDTH;
+  int height = G70x70_HEIGHT;
 
   time1=micros();
 
-  // Draw a 70x70 Glaive G 100 times
+  // Draw a 70x70 Stylized colored G 100 times
 
   for (i=1; i<=numberOfFrames; i++)
   {

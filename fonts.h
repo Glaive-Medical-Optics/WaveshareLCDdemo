@@ -7,7 +7,7 @@
   * @brief   Header for fonts.c file
   ******************************************************************************
   *
-  * 5/22/2024 SR/DK changed structure CH_CN so that 4 bytes are reserved for the character
+  * 5/22/2024 changed structure CH_CN so that 4 bytes are reserved for the character
   * since some Chinese characters require 3 bytes in UTF-8 encoding plus one byte for the terminating null character.
   *
   * @attention
